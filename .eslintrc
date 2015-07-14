@@ -17,7 +17,7 @@
         "no-caller": 2,
         "no-extra-bind": 2,
         "no-catch-shadow": 2,
-        "comma-dangle": [2, "never"],
+        "comma-dangle": [2, "always-multiline"],
         "no-irregular-whitespace": 2,
         "no-cond-assign": 2,
         "no-console": 2,
