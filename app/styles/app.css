@@ -1,0 +1,7 @@
+html {
+  overflow-y: scroll;
+}
+
+.big-emoji {
+  font-size: 6rem;
+}
