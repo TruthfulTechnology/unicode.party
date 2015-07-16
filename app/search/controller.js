@@ -1,11 +1,21 @@
 import Ember from 'ember';
 
+function keywordMatches (keyword, query) {
+  return keyword.indexOf(query.toLowerCase()) !== -1;
+}
+
 export default Ember.Controller.extend({
-  // TODO Make keyword model and search for matching keyword and then get linked emoji
   updateEmojis(query) {
-    var matches = this.store.filter('emoji', (emoji) => {
-      return emoji.get('keywords').has(query);
-    }).then((matches) => {
+    var keywords = this.store.filter('keyword', keyword => {
+      return keywordMatches(keyword.get('id'), query);
+    }).then(keywordModels => {
+      let keywordStrings = keywordModels.map(k => k.get('id'));
+      return this.store.filter('emoji', emoji => {
+        return keywordStrings.some(keyword => {
+          return emoji.get('keywords').has(keyword);
+        });
+      });
+    }).then(matches => {
       this.set('emojiResults', matches);
     });
   },
