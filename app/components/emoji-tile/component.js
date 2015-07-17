@@ -6,7 +6,6 @@ function copyText(text) {
   document.body.appendChild(input);
   try {
     input.value = text;
-    input.focus();
     input.select();
     copied = document.execCommand('copy');
   } catch (err) {
@@ -20,7 +19,13 @@ function copyText(text) {
 export default Ember.Component.extend({
   charClass: 'hidden-emoji-char',
   click() {
-    let copied = copyText(this.get('emoji.char'));
-    console.log(`Text was ${copied ? 'copied' : 'not copied'}`);
+    const flashMessages = Ember.get(this, 'flashMessages');
+    const char = this.get('emoji.char');
+    let copied = copyText(char);
+    if (copied) {
+      flashMessages.success(`Copied ${char}`);
+    } else {
+      flashMessages.danger(`Could not copy ${char}`);
+    }
   },
 });

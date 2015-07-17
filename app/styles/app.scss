@@ -1,6 +1,9 @@
+// Mixins
 @import "cards";
 @import "grid";
+
+// Core Styles
+@import "alerts";
+@import "emoji-tiles";
 @import "helpers";
 @import "typography";
-
-@import "emoji-tiles";

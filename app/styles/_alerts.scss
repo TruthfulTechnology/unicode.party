@@ -1,0 +1,16 @@
+.alerts {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.alert {
+  @include card(3);
+  font-size: 3rem;
+  padding: 1rem;
+  margin: 2rem;
+}
+
+.alert-success {
+  background-color: lightgreen;
+}
