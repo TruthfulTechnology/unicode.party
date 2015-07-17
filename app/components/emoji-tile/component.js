@@ -22,6 +22,7 @@ export default Ember.Component.extend({
     const flashMessages = Ember.get(this, 'flashMessages');
     const char = this.get('emoji.char');
     let copied = copyText(char);
+    flashMessages.clearMessages();
     if (copied) {
       flashMessages.success(`Copied ${char}`);
     } else {
