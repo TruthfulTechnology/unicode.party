@@ -7,11 +7,12 @@ $emoji-font-size: 6rem;
   margin-bottom: 3rem;
   cursor: pointer;
   @include susy-breakpoint(40rem, $susy) {
-      @include gallery(2);
-    }
+    @include gallery(2);
+  }
   @include susy-breakpoint(80rem, $susy) {
-      @include gallery(1);
-    }
+    @include gallery(1);
+  }
+  animation: showEmoji linear 0.1s;
 }
 
 .emoji-char {
@@ -32,4 +33,13 @@ $emoji-font-size: 6rem;
   padding-top: $emoji-font-size - 1rem;
   text-align: center;
   color: gray;
+}
+
+@keyframes showEmoji {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
 }
