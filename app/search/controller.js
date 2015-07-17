@@ -10,14 +10,8 @@ export default Ember.Controller.extend({
   queryParams: ['query'],
   query: null,
 
-  init() {
-    this._super();
-    this.updateEmojis();
-  },
-
   updateEmojis(query) {
     this.set('query', query || null);
-    query = query || '';
     var keywords = this.store.filter('keyword', keyword => {
       return keywordMatches(keyword.get('id'), query);
     }).then(keywordModels => {
