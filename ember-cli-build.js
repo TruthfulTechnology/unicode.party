@@ -3,6 +3,9 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
+    fingerprint: {
+      prepend: 'http://assets.unicode.party/',
+    },
     sassOptions: {
       includePaths: [
         'bower_components/susy/sass',
