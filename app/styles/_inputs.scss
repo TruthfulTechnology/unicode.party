@@ -1,5 +1,11 @@
 // Based on http://codepen.io/mildrenben/pen/gbddEj
 
+label {
+  display: block;
+  padding-top: 3rem;
+  margin-top: -3rem;
+}
+
 input::-webkit-input-placeholder {
   transition: all 0.3s ease-in-out;
 }
