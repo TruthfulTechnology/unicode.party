@@ -13,6 +13,13 @@ $emoji-font-size: 6rem;
     @include gallery(1);
   }
   animation: showEmoji linear 0.1s;
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    @include card(3);
+    .emoji-copy {
+      color: purple;
+    }
+  }
 }
 
 .emoji-char {
