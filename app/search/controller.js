@@ -25,7 +25,7 @@ export default Ember.Controller.extend({
         return hasKeyword || nameMatches || categoryMatches;
       });
     }).then(matches => {
-      this.set('emojiResults', matches.slice(0, 24));
+      this.set('emojiResults', matches.slice(0, 48));
     });
   },
 
