@@ -24,12 +24,12 @@ export default Ember.Controller.extend({
         return hasKeyword || nameMatches || categoryMatches;
       });
     }).then(matches => {
-      this.set('emojiResults', matches);
+      this.set('emojiResults', matches.slice(0, 24));
     });
   },
   actions: {
     search(query) {
-      Ember.run.debounce(this, this.updateEmojis, query, 100);
+      Ember.run.debounce(this, this.updateEmojis, query, 250);
     },
   },
 });
