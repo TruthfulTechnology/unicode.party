@@ -1,6 +1,10 @@
-body {
+html {
   font-family: Arial;
-  font-size: 16px;
+  font-size: 12px;
+  @include susy-breakpoint($medium-screen, $susy) {
+    font-size: 16px;
+  }
+
 }
 
 $h6-font-size: 1rem;
