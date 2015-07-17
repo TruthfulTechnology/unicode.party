@@ -6,11 +6,18 @@ function keywordMatches (keyword='', query='') {
 }
 
 export default Ember.Controller.extend({
+
+  queryParams: ['query'],
+  query: null,
+
   init() {
     this._super();
     this.updateEmojis();
   },
+
   updateEmojis(query) {
+    this.set('query', query || null);
+    query = query || '';
     var keywords = this.store.filter('keyword', keyword => {
       return keywordMatches(keyword.get('id'), query);
     }).then(keywordModels => {
@@ -27,9 +34,11 @@ export default Ember.Controller.extend({
       this.set('emojiResults', matches.slice(0, 24));
     });
   },
+
   actions: {
     search(query) {
       Ember.run.debounce(this, this.updateEmojis, query, 250);
     },
   },
+
 });
