@@ -16,3 +16,15 @@ h3 { font-size: $h3-font-size; }
 h4 { font-size: $h4-font-size; }
 h5 { font-size: $h5-font-size; }
 h6 { font-size: $h6-font-size; }
+
+a {
+  &:link {
+    text-decoration: none;
+  }
+  &:link, &:visited {
+    color: blue;
+  }
+  &:hover {
+    color: red;
+  }
+}

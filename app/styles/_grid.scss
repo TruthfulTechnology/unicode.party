@@ -18,7 +18,11 @@ body {
   @include container;
 }
 
-header, main {
+header, main, footer {
   max-width: 90vw;
   margin: auto;
+}
+
+footer {
+  text-align: center;
 }
