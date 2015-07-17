@@ -2,10 +2,16 @@ $emoji-font-size: 6rem;
 
 .emoji {
   @include card(2);
-  @include gallery(4);
+  @include span(4);
   padding: 1rem;
   margin-bottom: 3rem;
   cursor: pointer;
+  @include susy-breakpoint(40rem, $susy) {
+      @include gallery(2);
+    }
+  @include susy-breakpoint(80rem, $susy) {
+      @include gallery(1);
+    }
 }
 
 .emoji-char {
