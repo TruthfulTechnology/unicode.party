@@ -1,27 +1,30 @@
 import Ember from 'ember';
 
-function copyText(text) {
-  let copied;
-  let input = document.createElement('input');
-  document.body.appendChild(input);
-  try {
-    input.value = text;
-    input.select();
-    copied = document.execCommand('copy');
-  } catch (err) {
-    copied = false;
-  } finally {
-    input.remove();
-  }
-  return copied;
-}
-
 export default Ember.Component.extend({
   charClass: 'hidden-emoji-char',
+
+  copyText(text) {
+    let copied;
+    let input = $('<input>');
+    this.$().append(input);
+    try {
+      input.val(text);
+      input.select();
+      copied = document.execCommand('copy');
+      console.error('Copy failed');
+    } catch (err) {
+      console.error('Copying error', err);
+      copied = false;
+    } finally {
+      input.remove();
+    }
+    return copied;
+  },
+
   click() {
     const flashMessages = Ember.get(this, 'flashMessages');
     const char = this.get('emoji.char');
-    let copied = copyText(char);
+    let copied = this.copyText(char);
     flashMessages.clearMessages();
     if (copied) {
       flashMessages.success(`Copied ${char}`);
