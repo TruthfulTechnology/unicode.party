@@ -1,11 +1,12 @@
 import Ember from 'ember';
+import KeyboardMixin from 'ember-keyboard-service/mixins/keyboard';
 
 function keywordMatches (keyword='', query='') {
   let normalizedQuery = query.toLowerCase().replace(/\W*/, '');
   return keyword.replace(/_/g, '').indexOf(normalizedQuery) !== -1;
 }
 
-export default Ember.Controller.extend({
+export default Ember.Controller.extend(KeyboardMixin, {
 
   queryParams: ['query'],
   query: null,
@@ -28,6 +29,20 @@ export default Ember.Controller.extend({
       this.set('emojiResults', matches.slice(0, 48));
     });
   },
+
+  toggleSearchFocus() {
+    const searchBox = Ember.$('input');
+    if (searchBox.is(':focus')) {
+      searchBox.blur();
+    } else {
+      Ember.run.later(() => searchBox.focus()); // Don't put "/" in input box
+    }
+  },
+
+  keyboardHandlers: [
+    {key: 'Enter', handler: 'toggleSearchFocus', options: {actOnInputElement: true}},
+    {key: '/', handler: 'toggleSearchFocus', options: {actOnInputElement: true}},
+  ],
 
   actions: {
     search(query) {
