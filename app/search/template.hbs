@@ -2,10 +2,11 @@
 
 <section class="emoji-tiles">
   {{#each emojiResults as |emoji|}}
-    <div class="emoji">
-      <div class="emoji-char">{{emoji.char}}</div>
-      <div class="emoji-name">{{emoji.formattedName}}</div>
-    </div>
+    {{#emoji-tile emoji=emoji classNames="emoji" as |model|}}
+      <div class="emoji-char">{{model.char}}</div>
+      <div class="emoji-name">{{model.formattedName}}</div>
+      <div class="emoji-copy">Click to Copy</div>
+    {{/emoji-tile}}
   {{else}}
     No Emoji Found.
   {{/each}}
