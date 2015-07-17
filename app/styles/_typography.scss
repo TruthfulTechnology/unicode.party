@@ -17,6 +17,18 @@ h4 { font-size: $h4-font-size; }
 h5 { font-size: $h5-font-size; }
 h6 { font-size: $h6-font-size; }
 
+.header-title {
+  margin-bottom: 0;
+}
+
+.header-balloon {
+  color: red;
+}
+
+.header-subtitle {
+  color: midnightblue;
+}
+
 a {
   &:link {
     text-decoration: none;
