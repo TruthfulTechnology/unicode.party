@@ -26,7 +26,7 @@ export default Ember.Controller.extend(KeyboardMixin, {
         return hasKeyword || nameMatches || categoryMatches;
       });
     }).then(matches => {
-      this.set('emojiResults', matches.slice(0, 48));
+      this.set('emojiResults', matches.slice(0, 32));
     });
   },
 
