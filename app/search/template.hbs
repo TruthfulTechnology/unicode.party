@@ -1,7 +1,12 @@
 {{search-box searchAction="search"}}
 
-{{#each emojiResults as |emoji|}}
-  <span class="big-emoji">{{emoji.char}}</span>
-{{else}}
-  No Emoji Found.
-{{/each}}
+<section class="emoji-tiles">
+  {{#each emojiResults as |emoji|}}
+    <div class="emoji">
+      <div class="emoji-char">{{emoji.char}}</div>
+      <div class="emoji-name">{{emoji.formattedName}}</div>
+    </div>
+  {{else}}
+    No Emoji Found.
+  {{/each}}
+</section>

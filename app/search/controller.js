@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 function keywordMatches (keyword='', query='') {
   let normalizedQuery = query.toLowerCase().replace(/\W*/, '');
-  return keyword.replace(/_/, '').indexOf(normalizedQuery) !== -1;
+  return keyword.replace(/_/g, '').indexOf(normalizedQuery) !== -1;
 }
 
 export default Ember.Controller.extend({
@@ -11,7 +11,6 @@ export default Ember.Controller.extend({
     this.updateEmojis();
   },
   updateEmojis(query) {
-    this.set('emojiResults', []);
     var keywords = this.store.filter('keyword', keyword => {
       return keywordMatches(keyword.get('id'), query);
     }).then(keywordModels => {

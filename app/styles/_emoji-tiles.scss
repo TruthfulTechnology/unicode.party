@@ -1,0 +1,23 @@
+$emoji-font-size: 6rem;
+
+.emoji {
+  @include card(2);
+  @include gallery(4);
+  padding: 1rem;
+  margin-bottom: 3rem;
+  cursor: default;
+}
+
+.emoji-char {
+  font-size: $emoji-font-size;
+  float: left;
+}
+
+.emoji-name {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+  text-transform: capitalize;
+  float: right;
+}

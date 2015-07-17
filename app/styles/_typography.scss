@@ -1,0 +1,18 @@
+body {
+  font-family: Arial;
+  font-size: 16px;
+}
+
+$h6-font-size: 1rem;
+$h5-font-size: $h6-font-size * 4/3;
+$h4-font-size: $h5-font-size * 4/3;
+$h3-font-size: $h4-font-size * 4/3;
+$h2-font-size: $h3-font-size * 4/3;
+$h1-font-size: $h2-font-size * 4/3;
+
+h1 { font-size: $h1-font-size; }
+h2 { font-size: $h2-font-size; }
+h3 { font-size: $h3-font-size; }
+h4 { font-size: $h4-font-size; }
+h5 { font-size: $h5-font-size; }
+h6 { font-size: $h6-font-size; }

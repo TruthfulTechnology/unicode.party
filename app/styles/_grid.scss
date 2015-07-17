@@ -1,0 +1,19 @@
+@import "susy";
+
+$susy: (
+  columns: 16,
+  container: 80em,
+  gutters: 1/4,
+  output: isolate,
+  global-box-sizing: border-box,
+);
+
+@include border-box-sizing;
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  @include container;
+}
