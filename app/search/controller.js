@@ -35,7 +35,10 @@ export default Ember.Controller.extend(KeyboardMixin, {
     if (searchBox.is(':focus')) {
       searchBox.blur();
     } else {
-      Ember.run.later(() => searchBox.focus()); // Don't put "/" in input box
+      // Don't put "/" in input box
+      Ember.run.later(() => {
+        searchBox.focus().select();
+      });
     }
   },
 
