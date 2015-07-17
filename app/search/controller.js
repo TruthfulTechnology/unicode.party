@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
 
   updateEmojis(query) {
     this.set('query', query || null);
-    var keywords = this.store.filter('keyword', keyword => {
+    this.store.filter('keyword', keyword => {
       return keywordMatches(keyword.get('id'), query);
     }).then(keywordModels => {
       let keywordStrings = keywordModels.map(k => k.get('id'));

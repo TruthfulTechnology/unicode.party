@@ -11,7 +11,7 @@ export function initialize(container/* , application */) {
       let keywordJSON = keywords.map(k => ({
         id: k,
         'type': 'keyword',
-      }))
+      }));
       store.push({data: keywordJSON});
     }
     store.push(store.normalize('emoji', {id: name, name, char, category, keywords}));
