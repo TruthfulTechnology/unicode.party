@@ -6,18 +6,21 @@ $emoji-font-size: 6rem;
   padding: 1rem;
   margin-bottom: 3rem;
   cursor: pointer;
-  @include susy-breakpoint(40rem, $susy) {
+  @include susy-breakpoint($medium-screen, $susy) {
     @include gallery(2);
   }
-  @include susy-breakpoint(80rem, $susy) {
+  @include susy-breakpoint($large-screen, $susy) {
     @include gallery(1);
   }
   animation: showEmoji linear 0.1s;
   transition: all 0.1s ease-in-out;
   &:hover {
     @include card(3);
+    .emoji-name {
+      color: indigo;
+    }
     .emoji-copy {
-      color: purple;
+      color: midnightblue;
     }
   }
 }
@@ -34,11 +37,13 @@ $emoji-font-size: 6rem;
   user-select: none;
   text-transform: capitalize;
   float: right;
+  text-align: right;
+  max-width: 50%;
 }
 
 .emoji-copy {
   padding-top: $emoji-font-size - 1rem;
-  text-align: center;
+  text-align: right;
   color: gray;
 }
 

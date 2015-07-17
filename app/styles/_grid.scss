@@ -1,5 +1,8 @@
 @import "susy";
 
+$medium-screen: 40em;
+$large-screen: 80em;
+
 $susy: (
   columns: 4,
   container: 80em,
