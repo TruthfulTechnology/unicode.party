@@ -7,14 +7,12 @@ moduleForComponent('search-box', 'Integration | Component | search box', {
 });
 
 test('it renders', function(assert) {
-  assert.expect(2);
-
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  assert.expect(3);
 
   this.render(hbs`{{search-box}}`);
 
-  assert.equal(this.$().text(), '');
+  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().find('input').val(), '');
 
   // Template block usage:
   this.render(hbs`
@@ -24,4 +22,34 @@ test('it renders', function(assert) {
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');
+});
+
+test('it accepts initial query', function(assert) {
+  assert.expect(1);
+
+  this.render(hbs`{{search-box query="animal"}}`);
+
+  assert.equal(this.$().find('input').val(), 'animal');
+});
+
+test('it sends search action', function(assert) {
+  assert.expect(7);
+  const newQuery = 'animal';
+  let calls = 0;
+
+  this.set('query', null);
+  this.on('search', val => {
+    const query = (calls === 0) ? '' : newQuery;
+    assert.equal(val, query);
+    assert.equal(this.$().find('input').val(), query);
+    assert.equal(this.get('query'), null);
+    calls++;
+  });
+
+  this.render(hbs`{{search-box query=query searchAction="search"}}`);
+
+  assert.equal(this.$().find('input').val(), '');
+
+  this.$().find('input').val('animal').trigger('input');
+
 });

@@ -5,7 +5,7 @@ import {moduleFor, test} from 'ember-qunit';
 let registry, application;
 
 moduleFor('initializer:emoji', 'Unit | Initializer | emoji', {
-  needs: ['model:emoji'],
+  needs: ['model:emoji', 'model:keyword'],
   beforeEach() {
     Ember.run(function () {
       application = Ember.Application.create();
