@@ -4,7 +4,14 @@ html {
   @include susy-breakpoint($medium-screen, $susy) {
     font-size: 16px;
   }
+}
 
+// EmojiSymbols Font (c)blockworks - Kenichi Kaneko http://emojisymbols.com/
+@font-face {
+  font-family: "EmojiSymbols";
+  src: url('/EmojiSymbols-Regular.woff') format('woff');
+  text-decoration: none;
+  font-style: normal;
 }
 
 $h6-font-size: 1rem;
