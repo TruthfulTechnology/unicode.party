@@ -6,10 +6,9 @@ html {
   }
 }
 
-// EmojiSymbols Font (c)blockworks - Kenichi Kaneko http://emojisymbols.com/
 @font-face {
-  font-family: "EmojiSymbols";
-  src: url('/EmojiSymbols-Regular.woff') format('woff');
+  font-family: "OpenSansEmoji";
+  src: url('/OpenSansEmoji.woff') format('woff');
   text-decoration: none;
   font-style: normal;
 }
@@ -65,5 +64,5 @@ footer {
 }
 
 .emoji-text {
-  font-family: "EmojiSymbols";
+  font-family: "DejaVu Sans", "Segoe UI Symbol", "OpenSansEmoji", "Arial Unicode MS", Symbola;
 }
