@@ -5,13 +5,15 @@ export default Ember.Component.extend({
 
   copyText(text) {
     let copied;
-    let input = $('<input>');
+    let input = Ember.$('<input>');
     this.$().append(input);
     try {
       input.val(text);
       input.select();
       copied = document.execCommand('copy');
-      console.error('Copy failed');
+      if (!copied) {
+        console.error('Copy failed');
+      }
     } catch (err) {
       console.error('Copying error', err);
       copied = false;
