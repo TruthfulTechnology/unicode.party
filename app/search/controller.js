@@ -10,11 +10,7 @@ export default Ember.Controller.extend(KeyboardMixin, {
 
   queryParams: ['query'],
   query: undefined,
-
-  init() {
-    this._super();
-    this.set('initialQuery', this.get('query'));
-  },
+  initialQuery: Ember.computed.oneWay('query'),
 
   updateEmojis(query='') {
     this.set('query', query || undefined);
