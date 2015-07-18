@@ -1,12 +1,12 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import {moduleForComponent, test} from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
 
 moduleForComponent('search-box', 'Integration | Component | search box', {
-  integration: true
+  integration: true,
 });
 
-test('it renders', function(assert) {
+test('it renders', function (assert) {
   assert.expect(3);
 
   this.render(hbs`{{search-box}}`);
@@ -24,7 +24,7 @@ test('it renders', function(assert) {
   assert.equal(this.$().text().trim(), 'template block text');
 });
 
-test('it accepts initial query', function(assert) {
+test('it accepts initial query', function (assert) {
   assert.expect(1);
 
   this.render(hbs`{{search-box query="animal"}}`);
@@ -32,16 +32,21 @@ test('it accepts initial query', function(assert) {
   assert.equal(this.$().find('input').val(), 'animal');
 });
 
-test('it sends search action', function(assert) {
+test('it sends search action', function (assert) {
   assert.expect(4);
   const newQuery = 'animal';
   let calls = 0;
 
   this.set('query', undefined);
   this.on('search', val => {
-    const query = (calls < 2) ? undefined : newQuery;
+    let query;
+    if (calls < 2) {
+      query = undefined;
+    } else {
+      query = newQuery;
+    }
     assert.equal(val, query, `${val} is ${query}`);
-    calls++;
+    calls += 1;
   });
 
   this.render(hbs`{{search-box query=query searchAction="search"}}`);

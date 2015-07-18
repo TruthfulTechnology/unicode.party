@@ -10,15 +10,21 @@ export function initialize(container/* , application */) {
     if (keywords) {
       let keywordJSON = keywords.map(k => ({
         id: k,
-        'type': 'keyword',
+        type: 'keyword',
       }));
       store.push({data: keywordJSON});
     }
-    store.push(store.normalize('emoji', {id: name, name, char, category, keywords}));
+    store.push(store.normalize('emoji', {
+      id: name,
+      name,
+      char,
+      category,
+      keywords,
+    }));
   }
 }
 export default {
   name: 'emoji',
   after: ['ember-data'],
-  initialize: initialize,
+  initialize,
 };

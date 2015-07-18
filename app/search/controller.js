@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import KeyboardMixin from 'ember-keyboard-service/mixins/keyboard';
 
-function keywordMatches (keyword='', query='') {
+function keywordMatches(keyword='', query='') {
   let normalizedQuery = query.toLowerCase().replace(/\W*/, '');
   return keyword.replace(/_/g, '').indexOf(normalizedQuery) !== -1;
 }
