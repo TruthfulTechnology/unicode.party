@@ -5,11 +5,7 @@ export default Ember.Component.extend({
   queryObserver: function () {
     // TODO replace with "input" action observer
     this.send('search');
-  }.observes('value'),
-
-  value: function () {
-    return this.get('query') || '';
-  }.property('query'),
+  }.observes('query'),
 
   didInsertElement() {
     this._super();
@@ -18,7 +14,7 @@ export default Ember.Component.extend({
 
   actions: {
     search() {
-      this.sendAction('searchAction', this.get('value'));
+      this.sendAction('searchAction', this.get('query'));
     },
   },
 

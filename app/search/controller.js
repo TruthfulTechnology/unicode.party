@@ -9,10 +9,15 @@ function keywordMatches (keyword='', query='') {
 export default Ember.Controller.extend(KeyboardMixin, {
 
   queryParams: ['query'],
-  query: null,
+  query: undefined,
 
-  updateEmojis(query) {
-    this.set('query', query || null);
+  init() {
+    this._super();
+    this.set('initialQuery', this.get('query'));
+  },
+
+  updateEmojis(query='') {
+    this.set('query', query || undefined);
     this.store.filter('keyword', keyword => {
       return keywordMatches(keyword.get('id'), query);
     }).then(keywordModels => {
@@ -46,6 +51,10 @@ export default Ember.Controller.extend(KeyboardMixin, {
     {key: 'Enter', handler: 'toggleSearchFocus', options: {actOnInputElement: true}},
     {key: '/', handler: 'toggleSearchFocus', options: {actOnInputElement: true}},
   ],
+
+  resetQuery() {
+    this.set('initialQuery', undefined);
+  },
 
   actions: {
     search(query) {
