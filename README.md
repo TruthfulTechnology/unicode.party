@@ -47,6 +47,21 @@ You will need the following things properly installed on your computer.
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
 
+## Helpful Shell Aliases
+
+For a more enjoyable workflow add these aliases to your `.zshrc`, `.bashrc`, etc.
+
+    alias 🐹=ember
+    alias emoji=ember
+
+This will allow you to use `emoji` or `🐹` instead of `ember`:
+
+    🐹 serve
+    🐹 test
+    🐹 deploy
+    emoji serve
+    emoji test
+    emoji deploy
 
 ## License
 
