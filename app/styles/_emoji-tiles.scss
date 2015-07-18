@@ -26,7 +26,7 @@ $emoji-font-size: 6rem;
 }
 
 .emoji-char {
-  font-family: "EmojiSymbols";
+  @extend .emoji-text;
   font-size: $emoji-font-size;
   float: left;
 }

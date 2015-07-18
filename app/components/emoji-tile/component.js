@@ -27,9 +27,10 @@ export default Ember.Component.extend({
     let copied = this.copyText(char);
     flashMessages.clearMessages();
     if (copied) {
-      flashMessages.success(`Copied ${char}`);
+      flashMessages.success(`Copied <span class="emoji-text">${char}</span>`);
     } else {
-      flashMessages.danger(`Could not copy ${char}`);
+      flashMessages.danger(`Couldn't copy <span class="emoji-text">${char}</span>`);
     }
   },
+
 });
