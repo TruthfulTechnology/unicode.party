@@ -2,7 +2,7 @@
 
 <section class="emoji-tiles">
   {{#each emojiResults as |emoji|}}
-    {{#emoji-tile emoji=emoji classNames="emoji" as |model|}}
+    {{#emoji-tile emoji=emoji classNames="emoji-tile" as |model|}}
       <div class="emoji-char">{{model.char}}</div>
       <div class="emoji-name">{{model.formattedName}}</div>
       <div class="emoji-copy">Click to Copy</div>

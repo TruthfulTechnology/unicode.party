@@ -1,6 +1,6 @@
 $emoji-font-size: 6rem;
 
-.emoji {
+.emoji-tile {
   @include card(2);
   @include span(4);
   padding: 1rem;
