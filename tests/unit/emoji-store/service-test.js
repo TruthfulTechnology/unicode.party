@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('service:emojis', 'Unit | Service | emojis', {
+moduleFor('service:emoji-store', 'Unit | Service | emoji-store', {
   // Specify the other units that are required for this test.
   // needs: ['service:foo']
 });
