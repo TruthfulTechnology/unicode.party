@@ -1,4 +1,4 @@
-/* eslint-disable no-var */
+/* eslint-disable no-var, object-shorthand */
 /* globals blanket, module */
 
 var options = {
@@ -11,7 +11,7 @@ var options = {
     reporters: ['lcov'],
     lcovOptions: {
       outputFile: 'lcov.info',
-      renamer: function(moduleName) {
+      renamer: function (moduleName) {
         var expression = /^codecov/;
         return moduleName.replace(expression, 'app') + '.js';
       },
