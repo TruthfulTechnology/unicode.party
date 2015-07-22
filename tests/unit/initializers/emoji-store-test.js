@@ -1,11 +1,10 @@
 import Ember from 'ember';
-import {initialize} from '../../../initializers/emoji';
-import {moduleFor, test} from 'ember-qunit';
+import {initialize} from '../../../initializers/emoji-store';
+import {module, test} from 'qunit';
 
 let registry, application;
 
-moduleFor('initializer:emoji', 'Unit | Initializer | emoji', {
-  needs: ['model:emoji', 'model:keyword'],
+module('Unit | Initializer | emoji store', {
   beforeEach() {
     Ember.run(function () {
       application = Ember.Application.create();

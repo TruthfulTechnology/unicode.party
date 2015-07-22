@@ -1,12 +1,12 @@
 import {moduleFor, test} from 'ember-qunit';
 
-moduleFor('transform:set', 'Unit | Transform | set', {
+moduleFor('service:emoji-store', 'Unit | Service | emoji-store', {
   // Specify the other units that are required for this test.
-  // needs: ['serializer:foo']
+  // needs: ['service:foo']
 });
 
 // Replace this with your real tests.
 test('it exists', function (assert) {
-  let transform = this.subject();
-  assert.ok(transform);
+  const service = this.subject();
+  assert.ok(service);
 });

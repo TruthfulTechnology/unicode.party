@@ -11,11 +11,7 @@ export default Ember.Component.extend({
       input.val(text);
       input.select();
       copied = document.execCommand('copy');
-      if (!copied) {
-        console.error('Copy failed');
-      }
     } catch (err) {
-      console.error('Copying error', err);
       copied = false;
     } finally {
       input.remove();
