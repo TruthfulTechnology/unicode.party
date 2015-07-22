@@ -1,4 +1,4 @@
-/* eslint-disable no-var */
+/* eslint-disable no-var, object-shorthand */
 /* globals blanket, module */
 
 var options = {
@@ -8,7 +8,14 @@ var options = {
   loaderExclusions: [],
   enableCoverage: true,
   cliOptions: {
-    reporters: ['json'],
+    reporters: ['lcov'],
+    lcovOptions: {
+      outputFile: 'coverage.json',
+      renamer: function (moduleName) {
+        var expression = /^codecov/;
+        return moduleName.replace(expression, 'app') + '.js';
+      },
+    },
     autostart: true,
   },
 };
