@@ -1,6 +1,8 @@
 import Ember from 'ember';
 import KeyboardMixin from 'ember-keyboard-service/mixins/keyboard';
 
+const workInInput = {actOnInputElement: true};
+
 export default Ember.Controller.extend(KeyboardMixin, {
 
   queryParams: ['query'],
@@ -26,8 +28,8 @@ export default Ember.Controller.extend(KeyboardMixin, {
   },
 
   keyboardHandlers: [
-    {key: 'Enter', handler: 'toggleSearchFocus', options: {actOnInputElement: true}},
-    {key: '/', handler: 'toggleSearchFocus', options: {actOnInputElement: true}},
+    {key: 'Enter', handler: 'toggleSearchFocus', options: workInInput},
+    {key: '/', handler: 'toggleSearchFocus', options: workInInput},
   ],
 
   resetQuery() {

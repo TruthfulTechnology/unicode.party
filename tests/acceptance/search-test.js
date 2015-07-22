@@ -1,24 +1,24 @@
 import Ember from 'ember';
-import { module, test } from 'qunit';
+import {module, test} from 'qunit';
 import startApp from 'unicodeparty/tests/helpers/start-app';
 
-var application;
+let application;
 
 function getChars() {
   return new Set(Ember.$('.emoji-char').toArray().map(el => el.innerText));
 }
 
 module('Acceptance | search', {
-  beforeEach: function() {
+  beforeEach() {
     application = startApp();
   },
 
-  afterEach: function() {
+  afterEach() {
     Ember.run(application, 'destroy');
-  }
+  },
 });
 
-test('search for horse emoji', function(assert) {
+test('search for horse emoji', function (assert) {
   visit('/');
 
   andThen(() => {

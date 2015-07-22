@@ -1,4 +1,4 @@
-import { moduleFor, test } from 'ember-qunit';
+import {moduleFor, test} from 'ember-qunit';
 
 moduleFor('service:emoji-store', 'Unit | Service | emoji-store', {
   // Specify the other units that are required for this test.
@@ -6,7 +6,7 @@ moduleFor('service:emoji-store', 'Unit | Service | emoji-store', {
 });
 
 // Replace this with your real tests.
-test('it exists', function(assert) {
-  var service = this.subject();
+test('it exists', function (assert) {
+  const service = this.subject();
   assert.ok(service);
 });

@@ -25,7 +25,9 @@ export default Ember.Service.extend({
     for (let name of Object.keys(emojilib)) {
       let {char, category, keywords} = emojilib[name];
       let emoji = {name: humanize(name), char};
-      if (!char) { continue; }
+      if (!char) {
+        continue;
+      }
       this.addKeyword(name, emoji);
       this.addKeyword(humanize(category), emoji);
       for (let k of keywords) {

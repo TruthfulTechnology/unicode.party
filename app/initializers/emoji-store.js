@@ -4,5 +4,5 @@ export function initialize(container, application) {
 
 export default {
   name: 'emoji-store',
-  initialize: initialize
+  initialize,
 };
