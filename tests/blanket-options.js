@@ -10,7 +10,7 @@ var options = {
   cliOptions: {
     reporters: ['lcov'],
     lcovOptions: {
-      outputFile: 'lcov.info',
+      outputFile: 'coverage.json',
       renamer: function (moduleName) {
         var expression = /^codecov/;
         return moduleName.replace(expression, 'app') + '.js';

@@ -11,7 +11,7 @@ bower_components
 # misc
 .sass-cache
 connect.lock
-lcov.info
+coverage.json
 coverage/*
 libpeerconnection.log
 npm-debug.log
