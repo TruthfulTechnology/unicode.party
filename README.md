@@ -67,6 +67,20 @@ This will allow you to use `emoji` or `🐹` instead of `ember`:
     emoji test
     emoji deploy
 
+## Technologies Used
+
+- [Ember.js][] and [ember-cli][]
+- [emojilib][]
+- [Susy][]
+- [Sass][]
+- [Babel][]
+
+[ember.js]: http://emberjs.com/
+[ember-cli]: http://www.ember-cli.com/
+[susy]: http://susy.oddbird.net/
+[sass]: http://sass-lang.com
+[babel]: https://babeljs.io/
+
 ## License
 
 Code released under an [MIT Licensed](http://th.mit-license.org/).
