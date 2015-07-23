@@ -77,6 +77,7 @@ This will allow you to use `emoji` or `🐹` instead of `ember`:
 
 [ember.js]: http://emberjs.com/
 [ember-cli]: http://www.ember-cli.com/
+[emojilib]: https://github.com/muan/emojilib
 [susy]: http://susy.oddbird.net/
 [sass]: http://sass-lang.com
 [babel]: https://babeljs.io/
