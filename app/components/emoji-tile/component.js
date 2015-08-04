@@ -5,7 +5,7 @@ export default Ember.Component.extend({
 
   copyText(text) {
     let copied;
-    let input = Ember.$('<input>');
+    let input = Ember.$('<input style="opacity: 0;">');
     this.$().append(input);
     try {
       input.val(text);
