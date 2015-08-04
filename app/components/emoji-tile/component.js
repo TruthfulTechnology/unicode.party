@@ -20,6 +20,9 @@ export default Ember.Component.extend({
   },
 
   click() {
+    if (!Modernizr.clipboard) {
+      return;
+    }
     const flashMessages = Ember.get(this, 'flashMessages');
     const char = this.get('emoji.char');
     const charHTML = `<span class="emoji-text">${char}</span>`;
