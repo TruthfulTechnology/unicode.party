@@ -19,8 +19,23 @@ export default Ember.Component.extend({
     return copied;
   },
 
+  selectText(element) {
+    if (document.body.createTextRange) {
+      let range = document.body.createTextRange();
+      range.moveToElementText(element);
+      range.select();
+    } else if (window.getSelection) {
+      let selection = window.getSelection();
+      let range = document.createRange();
+      range.selectNodeContents(element);
+      selection.removeAllRanges();
+      selection.addRange(range);
+    }
+  },
+
   click() {
     if (!Modernizr.clipboard) {
+      this.selectText(this.$().find('.emoji-char')[0]);
       return;
     }
     const flashMessages = Ember.get(this, 'flashMessages');
