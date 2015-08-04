@@ -48,6 +48,12 @@ $emoji-font-size: 6rem;
   color: gray;
 }
 
+.emoji-tile {
+  &::selection, *:not(.emoji-char)::selection {
+    background: transparent;
+  }
+}
+
 @keyframes showEmoji {
   0% {
     transform: scaleY(0);
