@@ -34,21 +34,25 @@ export default Ember.Component.extend({
     }
   },
 
-  click() {
-    if (!Modernizr.clipboard) {
-      this.selectText(this.$().find('.emoji-char')[0]);
-      return;
-    }
+  flashCopyMessage(copied, char) {
     const flashMessages = Ember.get(this, 'flashMessages');
-    const char = this.get('emoji.char');
     const charHTML = `<span class="emoji-text">${char}</span>`;
-    let copied = this.copyText(char);
     flashMessages.clearMessages();
     if (copied) {
       flashMessages.success(`Copied ${charHTML}`);
     } else {
       flashMessages.danger(`Couldn't copy ${charHTML}`);
     }
+  },
+
+  click() {
+    if (!Modernizr.clipboard) {
+      this.selectText(this.$().find('.emoji-char')[0]);
+      return;
+    }
+    const char = this.get('emoji.char');
+    let copied = this.copyText(char);
+    this.flashCopyMessage(copied, char);
   },
 
 });
