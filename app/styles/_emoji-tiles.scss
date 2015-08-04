@@ -46,6 +46,15 @@ $emoji-font-size: 6rem;
   padding-top: $emoji-font-size - 1rem;
   text-align: right;
   color: gray;
+  .no-clipboard & {
+    display: none;
+  }
+}
+
+.emoji-tile {
+  &::selection, *:not(.emoji-char)::selection {
+    background: transparent;
+  }
 }
 
 @keyframes showEmoji {
