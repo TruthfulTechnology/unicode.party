@@ -47,6 +47,6 @@
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.2",
     "ember-keyboard-service": "0.2.0",
-    "emojilib": "^0.1.0"
+    "emojilib": "^2.0.2"
   }
 }
