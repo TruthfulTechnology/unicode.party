@@ -6,9 +6,6 @@ module.exports = function(defaults) {
     babel: {
       includePolyfill: true,
     },
-    fingerprint: {
-      prepend: 'http://assets.unicode.party/',
-    },
     sassOptions: {
       includePaths: [
         'bower_components/susy/sass',

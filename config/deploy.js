@@ -7,7 +7,7 @@ module.exports = function (deployTarget) {
     s3: {
       accessKeyId: process.env.AWS_KEY,
       secretAccessKey: process.env.AWS_SECRET,
-      bucket: 'assets.unicode.party',
+      bucket: 'unicode.party',
       region: 'us-east-1',
     },
     's3-index': {
@@ -16,7 +16,6 @@ module.exports = function (deployTarget) {
       bucket: 'unicode.party',
       region: 'us-east-1',
       hostName: 'unicode.party',
-      indexMode: 'direct',
       allowOverwrite: true,
     },
   };
