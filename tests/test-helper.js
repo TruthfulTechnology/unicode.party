@@ -6,7 +6,7 @@ import './helpers/flash-message';
 import flashMessageHelper from './helpers/flash-message';
 
 import {
-  setResolver
+  setResolver,
 } from 'ember-qunit';
 
 setResolver(resolver);
