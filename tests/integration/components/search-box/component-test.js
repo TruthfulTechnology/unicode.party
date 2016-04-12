@@ -33,14 +33,14 @@ test('it accepts initial query', function (assert) {
 });
 
 test('it sends search action', function (assert) {
-  assert.expect(4);
+  assert.expect(3);
   const newQuery = 'animal';
   let calls = 0;
 
   this.set('query', undefined);
   this.on('search', val => {
     let query;
-    if (calls < 2) {
+    if (calls < 1) {
       query = undefined;
     } else {
       query = newQuery;

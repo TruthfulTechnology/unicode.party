@@ -1,22 +1,24 @@
+/* eslint node: true */
 /* jshint node: true */
 
-module.exports = {
-  production: {
-    store: {
-      type: 'S3',
+module.exports = function (deployTarget) {
+  var ENV = {
+    build: {},
+    s3: {
       accessKeyId: process.env.AWS_KEY,
       secretAccessKey: process.env.AWS_SECRET,
       bucket: 'unicode.party',
-      acl: 'public-read',
-      hostName: 'unicode.party',
-      indexMode: 'direct',
+      region: 'us-east-1',
     },
-
-    assets: {
-      type: 's3',
+    's3-index': {
       accessKeyId: process.env.AWS_KEY,
       secretAccessKey: process.env.AWS_SECRET,
-      bucket: 'assets.unicode.party',
-    }
-  }
-}
+      bucket: 'unicode.party',
+      region: 'us-east-1',
+      hostName: 'unicode.party',
+      allowOverwrite: true,
+    },
+  };
+
+  return ENV;
+};

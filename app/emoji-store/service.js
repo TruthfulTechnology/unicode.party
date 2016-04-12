@@ -22,8 +22,8 @@ export default Ember.Service.extend({
   },
 
   seedEmoji() {
-    for (let name of Object.keys(emojilib)) {
-      let {char, category, keywords} = emojilib[name];
+    for (let name of Object.keys(emojilib.lib)) {
+      let {char, category, keywords} = emojilib.lib[name];
       let emoji = {name: humanize(name), char};
       if (!char) {
         continue;
