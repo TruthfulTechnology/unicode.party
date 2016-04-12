@@ -29,6 +29,7 @@ $emoji-font-size: 6rem;
   @extend .emoji-text;
   font-size: $emoji-font-size;
   float: left;
+  letter-spacing: -0.7em;
 }
 
 .emoji-name {
