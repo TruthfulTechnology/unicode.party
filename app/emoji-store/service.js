@@ -21,7 +21,7 @@ function countryName(code) {
 
 function humanize(word, category) {
   if (word.length === 2 && category === 'flags') {
-    return countryName(word);
+    return countryName(word.toUpperCase());
   }
   return (word || '').replace(/_/g, ' ');
 }
