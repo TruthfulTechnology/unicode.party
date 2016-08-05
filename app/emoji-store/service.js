@@ -2,8 +2,11 @@ import Ember from 'ember';
 import emojilib from 'npm:emojilib';
 import countries from 'npm:isoc';
 
-function humanize(category) {
-  return (category || '').replace(/_/g, ' ');
+function humanize(word, category) {
+  if (word.length == 2 && category === 'flags') {
+    return countryName(word);
+  }
+  return (word || '').replace(/_/g, ' ');
 }
 
 function keywordMatches(keyword='', query='') {
@@ -42,10 +45,7 @@ export default Ember.Service.extend({
   seedEmoji() {
     for (let name of Object.keys(emojilib.lib)) {
       let {char, category, keywords} = emojilib.lib[name];
-      let emoji = {
-        name: (category === 'flags')?countryName(name.toUpperCase()):humanize(name),
-        char,
-      };
+      let emoji = {name: humanize(name, category), char};
       if (!char) {
         continue;
       }
