@@ -57,5 +57,8 @@
     "emojilib": "^2.0.2",
     "eslint-config-ember": "0.0.5",
     "loader.js": "^4.0.1"
+  },
+  "dependencies": {
+    "isoc": "0.0.1"
   }
 }
