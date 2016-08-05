@@ -1,8 +1,29 @@
 import Ember from 'ember';
 import emojilib from 'npm:emojilib';
+import countries from 'npm:isoc';
 
-function humanize(category) {
-  return (category || '').replace(/_/g, ' ');
+function initCountryNameMapping() {
+  let m = {};
+  for (let country of countries) {
+    m[country.alpha2] = country;
+  }
+  return m;
+}
+
+function countryName(code) {
+  let c = countryName.c || (countryName.c = initCountryNameMapping());
+  if (c[code] !== undefined) {
+    return c[code].name.short;
+  } else {
+    return code;
+  }
+}
+
+function humanize(word, category) {
+  if (word.length === 2 && category === 'flags') {
+    return countryName(word.toUpperCase());
+  }
+  return (word || '').replace(/_/g, ' ');
 }
 
 function keywordMatches(keyword='', query='') {
@@ -24,7 +45,7 @@ export default Ember.Service.extend({
   seedEmoji() {
     for (let name of Object.keys(emojilib.lib)) {
       let {char, category, keywords} = emojilib.lib[name];
-      let emoji = {name: humanize(name), char};
+      let emoji = {name: humanize(name, category), char};
       if (!char) {
         continue;
       }
