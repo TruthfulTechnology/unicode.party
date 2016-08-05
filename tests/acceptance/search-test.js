@@ -39,6 +39,7 @@ test('search for flag emoji (HU)', function (assert) {
   fillIn('input', 'hungary');
   andThen(() => {
     assert.equal(Ember.$('.emoji-name').length, 1, '1 Hungarian flag found');
-    assert.equal(Ember.$('.emoji-name').text(), 'Hungary', 'Emoji has correct name')
+    assert.equal(Ember.$('.emoji-name').text(), 'Hungary',
+      'Emoji has correct name');
   });
 });
