@@ -2,18 +2,6 @@ import Ember from 'ember';
 import emojilib from 'npm:emojilib';
 import countries from 'npm:isoc';
 
-function humanize(word, category) {
-  if (word.length == 2 && category === 'flags') {
-    return countryName(word);
-  }
-  return (word || '').replace(/_/g, ' ');
-}
-
-function keywordMatches(keyword='', query='') {
-  let normalizedQuery = query.toLowerCase().replace(/\W*/, '');
-  return keyword.indexOf(normalizedQuery) !== -1;
-}
-
 function initCountryNameMapping() {
   let m = {};
   for (let country of countries) {
@@ -29,6 +17,18 @@ function countryName(code) {
   } else {
     return code;
   }
+}
+
+function humanize(word, category) {
+  if (word.length === 2 && category === 'flags') {
+    return countryName(word);
+  }
+  return (word || '').replace(/_/g, ' ');
+}
+
+function keywordMatches(keyword='', query='') {
+  let normalizedQuery = query.toLowerCase().replace(/\W*/, '');
+  return keyword.indexOf(normalizedQuery) !== -1;
 }
 
 export default Ember.Service.extend({
