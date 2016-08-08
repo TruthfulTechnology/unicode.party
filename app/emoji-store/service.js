@@ -26,9 +26,12 @@ function humanize(word, category) {
   return (word || '').replace(/_/g, ' ');
 }
 
-function keywordMatches(keyword='', query='') {
+function scoreKeyword(keyword='', query='') {
   let normalizedQuery = query.toLowerCase().replace(/\W*/, '');
-  return keyword.indexOf(normalizedQuery) !== -1;
+  if (keyword.indexOf(normalizedQuery) === -1) {
+    return 0;
+  }
+  return normalizedQuery.length / keyword.length;
 }
 
 export default Ember.Service.extend({
@@ -68,12 +71,21 @@ export default Ember.Service.extend({
 
   findEmoji(query) {
     let matches = new Set();
+    let scores = new Map();
     this.get('keywords').forEach((emojis, keyword) => {
-      if (keywordMatches(keyword, query)) {
-        matches = new Set([...matches, ...emojis]);
+      let score = scoreKeyword(keyword, query);
+      if (score === 0) {
+        return;
       }
+      for (let emoji of emojis) {
+        scores.set(emoji, (scores.get(emoji) || 0) + score);
+      }
+      matches = new Set([...matches, ...emojis]);
     });
-    return Array.from(matches);
+
+    return Array.from(matches)
+        .map(m => ({name: m.name, char: m.char, score: scores.get(m) || 0}))
+        .sort((a, b) => b.score - a.score);  // reversed scoring
   },
 
 });
