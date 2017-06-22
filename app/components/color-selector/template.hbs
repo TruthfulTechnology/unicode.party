@@ -1,0 +1,5 @@
+{{#each tones as |tone|}}
+  <span class="tone" role="group" aria-label="{{tone.name}}" {{action "setColor" tone.char}}>{{tone.char}}</span>
+{{/each}}
+{{yield}}
+<div class="clearfix"></div>

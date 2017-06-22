@@ -1,5 +1,16 @@
 $emoji-font-size: 6rem;
 
+.search-box {
+  float: left;
+}
+
+.color-selector {
+  float: right;
+  .tone {
+    cursor: pointer;
+  }
+}
+
 .emoji-tile {
   @include card(2);
   @include span(4);

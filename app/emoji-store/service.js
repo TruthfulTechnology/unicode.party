@@ -47,8 +47,13 @@ export default Ember.Service.extend({
 
   seedEmoji() {
     for (let name of Object.keys(emojilib.lib)) {
-      let {char, category, keywords} = emojilib.lib[name];
-      let emoji = {name: humanize(name, category), char};
+      let {
+        char,
+        category,
+        keywords,
+        fitzpatrick_scale: fitzpatrick,
+      } = emojilib.lib[name];
+      let emoji = {name: humanize(name, category), char, fitzpatrick};
       if (!char) {
         continue;
       }
@@ -84,7 +89,12 @@ export default Ember.Service.extend({
     });
 
     return Array.from(matches)
-        .map(m => ({name: m.name, char: m.char, score: scores.get(m) || 0}))
+        .map(m => ({
+          name: m.name,
+          char: m.char,
+          fitzpatrick: m.fitzpatrick,
+          score: scores.get(m) || 0,
+        }))
         .sort((a, b) => b.score - a.score);  // reversed scoring
   },
 
