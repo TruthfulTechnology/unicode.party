@@ -5,8 +5,9 @@ const workInInput = {actOnInputElement: true};
 
 export default Ember.Controller.extend(KeyboardMixin, {
 
-  queryParams: ['query'],
+  queryParams: ['query', 'modifier'],
   query: undefined,
+  modifier: "",
   initialQuery: Ember.computed.oneWay('query'),
 
   updateEmojis(query='') {
@@ -39,6 +40,9 @@ export default Ember.Controller.extend(KeyboardMixin, {
   actions: {
     search(query) {
       Ember.run.debounce(this, this.updateEmojis, query, 250);
+    },
+    setColor(char) {
+      this.set('modifier', char);
     },
   },
 

@@ -4,6 +4,18 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   charClass: 'hidden-emoji-char',
 
+  model: Ember.computed('emoji', 'modifier', function() {
+    let char;
+    let name = this.get('emoji.name');
+    console.log(this.get('modifier'), this.get('emoji.fitzpatrick'));
+    if (this.get('emoji.fitzpatrick') && this.get('modifier')) {
+      char = this.get('emoji.char') + this.get('modifier');
+    } else {
+      char = this.get('emoji.char');
+    }
+    return {char, name};
+  }),
+
   copyText(text) {
     let copied;
     let input = Ember.$('<input style="opacity: 0;">');
@@ -50,7 +62,7 @@ export default Ember.Component.extend({
       this.selectText(this.$().find('.emoji-char')[0]);
       return;
     }
-    const char = this.get('emoji.char');
+    const char = this.get('model.char');
     let copied = this.copyText(char);
     this.flashCopyMessage(copied, char);
   },

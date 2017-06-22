@@ -1,8 +1,11 @@
-{{search-box query=initialQuery searchAction="search"}}
+{{search-box query=initialQuery searchAction="search" classNames="search-box"}}
+{{color-selector classNames="color-selector" clickAction="setColor"}}
+
+<div class="clearfix"></div>
 
 <section class="emoji-tiles">
   {{#each emojiResults as |emoji|}}
-    {{#emoji-tile emoji=emoji classNames="emoji-tile" as |model|}}
+    {{#emoji-tile emoji=emoji modifier=modifier classNames="emoji-tile" as |model|}}
       <div class="emoji-char">{{model.char}}</div>
       <div class="emoji-name">{{model.name}}</div>
       <div class="emoji-copy">Click to Copy</div>
