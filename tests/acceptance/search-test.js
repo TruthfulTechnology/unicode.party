@@ -43,3 +43,12 @@ test('search for flag emoji (HU)', function (assert) {
       'Emoji has correct name');
   });
 });
+
+test('search for salad emoji (unicode 9.0)', function (assert) {
+  visit('/');
+
+  fillIn('input', 'salad');
+  andThen(() => {
+    assert.equal(Ember.$('.emoji-name').length, 1, '1 Salad emoji found');
+  });
+});

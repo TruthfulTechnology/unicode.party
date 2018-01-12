@@ -54,7 +54,7 @@
     "ember-keyboard-service": "0.3.1",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
-    "emojilib": "^2.2.6",
+    "emojilib": "^2.2.12",
     "eslint-config-ember": "0.0.5",
     "loader.js": "^4.0.1"
   },
