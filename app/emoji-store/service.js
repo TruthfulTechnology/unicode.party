@@ -1,27 +1,10 @@
 import Ember from 'ember';
 import emojilib from 'npm:emojilib';
-import countries from 'npm:isoc';
-
-function initCountryNameMapping() {
-  let m = {};
-  for (let country of countries) {
-    m[country.alpha2] = country;
-  }
-  return m;
-}
-
-function countryName(code) {
-  let c = countryName.c || (countryName.c = initCountryNameMapping());
-  if (c[code] !== undefined) {
-    return c[code].name.short;
-  } else {
-    return code;
-  }
-}
+import emojidata from 'npm:unicode-emoji-json';
 
 function humanize(word, category) {
-  if (word.length === 2 && category === 'flags') {
-    return countryName(word.toUpperCase());
+  if (category === 'Flags' && word.match(/^flag_/)) {
+    return word.replace(/^flag_/, '').replace(/_/g, ' ');
   }
   return (word || '').replace(/_/g, ' ');
 }
@@ -46,14 +29,15 @@ export default Ember.Service.extend({
   },
 
   seedEmoji() {
-    for (let name of Object.keys(emojilib.lib)) {
-      let {char, category, keywords} = emojilib.lib[name];
-      let emoji = {name: humanize(name, category), char};
+    for (let char of Object.keys(emojidata)) {
+      let {slug, group} = emojidata[char];
+      let keywords = emojilib[char];
+      let emoji = {name: humanize(slug, group), char};
       if (!char) {
         continue;
       }
       this.addKeyword(name, emoji);
-      this.addKeyword(humanize(category), emoji);
+      this.addKeyword(humanize(group), emoji);
       for (let k of keywords) {
         this.addKeyword(k, emoji);
       }

@@ -54,11 +54,10 @@
     "ember-keyboard-service": "0.3.1",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
-    "emojilib": "^2.2.6",
+    "emojilib": "^3.0.0",
     "eslint-config-ember": "0.0.5",
-    "loader.js": "^4.0.1"
+    "loader.js": "^4.0.1",
+    "unicode-emoji-json": "^0.2.1"
   },
-  "dependencies": {
-    "isoc": "0.0.1"
-  }
+  "dependencies": {}
 }
