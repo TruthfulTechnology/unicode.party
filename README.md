@@ -41,7 +41,7 @@ You will need the following things properly installed on your computer.
 ### Deploying
 
 * Set `AWS_KEY` and `AWS_SECRET` environment variables
-* Run `ember deploy -prod`
+* Run `ember deploy prod`
 
 ## Further Reading / Useful Links
 
