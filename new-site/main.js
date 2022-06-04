@@ -76,12 +76,53 @@ class EmojiSearcher {
 
 const searcher = new EmojiSearcher();
 
-Alpine.data('results', () => ({
-  search: '',
+Alpine.data('main', () => ({
+  _search: '',
+  copyCharacters: [],
+  timeout: null,
+  get search() {
+    return this._search;
+  },
+  set search(text) {
+    this._search = text;
+    if (text === '') {
+      window.history.pushState(null, null, new URL(window.location).pathname);
+    } else {
+      window.history.pushState(null, null, `?query=${text}`);
+    }
+  },
   get filteredItems() {
     return searcher.findEmoji(this.search);
   },
+  setQuery() {
+    this.search = new URL(window.location).searchParams.get('query') || '';
+  },
+  copy(character) {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
+    this.copyCharacters.length = 0;
+    setTimeout(() => {
+      this.copyCharacters.push(character);
+      navigator.clipboard.writeText(character);
+    }, 0);
+    this.timeout = setTimeout(() => {
+      this.copyCharacters.shift();
+    }, 3000);
+  },
 }));
 
+
+window.onkeypress = (event) => {
+  if (event.charCode === 13) {
+    const input = document.getElementById('query');
+    if (document.activeElement === input) {
+      input.blur();
+    } else {
+      input.focus();
+      input.select();
+    }
+  }
+};
 
 Alpine.start();

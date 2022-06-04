@@ -6,10 +6,6 @@ html {
   box-sizing: border-box;
 }
 
-body {
-  width: 100vw;
-}
-
 header, main, footer {
   max-width: 90vw;
   width: $medium-screen;
@@ -20,5 +16,6 @@ header, main, footer {
 }
 
 footer {
+  margin-top: 4em;
   text-align: center;
 }
