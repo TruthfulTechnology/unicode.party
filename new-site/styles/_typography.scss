@@ -1,5 +1,7 @@
 html {
-  font-family: Arial;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
   @media (min-width: $medium-screen) {
     font-size: 16px;
