@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "emojilib": "^3.0.6",
+    "emojilib": "^3.0.0",
     "sass": "^1.52.2",
     "unicode-emoji-json": "^0.3.1",
     "vite": "^2.9.9"
