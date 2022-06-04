@@ -33,7 +33,7 @@
     </header>
     <main class="clearfix">
       <label>
-        <input type="text" id="query" placeholder="Search" required autofocus x-init="setQuery()" x-model="search">
+        <input type="text" id="query" placeholder="Search" autofocus required x-init="setQuery(); $nextTick(() => { $el.select(); });" x-model="search">
       </label>
 
       <section class="emoji-tiles">
