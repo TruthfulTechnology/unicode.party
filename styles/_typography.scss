@@ -1,7 +1,9 @@
 html {
-  font-family: Arial;
-  font-size: 12px;
-  @include susy-breakpoint($medium-screen, $susy) {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  @media (min-width: $medium-screen) {
     font-size: 16px;
   }
 }
@@ -14,11 +16,11 @@ html {
 }
 
 $h6-font-size: 1rem;
-$h5-font-size: $h6-font-size * 4/3;
-$h4-font-size: $h5-font-size * 4/3;
-$h3-font-size: $h4-font-size * 4/3;
-$h2-font-size: $h3-font-size * 4/3;
-$h1-font-size: $h2-font-size * 4/3;
+$h5-font-size: calc($h6-font-size * 4/3);
+$h4-font-size: calc($h5-font-size * 4/3);
+$h3-font-size: calc($h4-font-size * 4/3);
+$h2-font-size: calc($h3-font-size * 4/3);
+$h1-font-size: calc($h2-font-size * 4/3);
 
 h1 { font-size: $h1-font-size; }
 h2 { font-size: $h2-font-size; }

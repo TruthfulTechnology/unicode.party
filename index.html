@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Unicode Party: The Unicode Emoji Search Engine</title>
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Unicode emoji search engine">
+    <meta name="author" content="Trey Hunner">
+    <meta name="creator" content="Truthful Technology, LLC">
+    <meta property="og:image" content="https://unicode.party/logo.png">
+    <meta property="og:title" content="Unicode Party 🎈">
+    <meta property="og:url" content="https://unicode.party">
+    <meta property="og:description" content="Unicode emoji search engine">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="search" type="application/opensearchdescription+xml" title="Unicode Party" href="/opensearch.xml">
+  </head>
+  <body x-data="main">
+    <div class="alerts" x-data="copyCharacters">
+      <template x-for="char in copyCharacters">
+        <div class="alert alert-success">
+          Copied <span class="emoji-text" x-text="char"></span>
+        </div>
+      </template>
+    </div>
+    <header class="header">
+      <a href="/" class="active">
+        <h1 class="header-title">Unicode Party <span class="header-balloon">🎈</span></h1>
+        <h5 class="header-subtitle">The Unicode Emoji Search Engine</h5>
+      </a>
+    </header>
+    <main class="clearfix">
+      <label>
+        <input type="text" id="query" placeholder="Search" autofocus required x-init="setQuery(); $nextTick(() => { $el.select(); });" x-model="search">
+      </label>
+
+      <section class="emoji-tiles">
+        <template x-for="emoji in filteredItems.slice(0, 40)">
+          <div class="emoji-tile" x-on:click="copy(emoji.char)">
+            <div class="emoji-char" x-text="emoji.char">😀</div>
+            <div class="emoji-name" x-text="emoji.name">grinning face</div>
+            <div class="emoji-copy">Click to Copy</div>
+          </div>
+        </template>
+      </section>
+
+    </main>
+    <footer>
+      <p>Unicode Emoji characters work on Facebook, Twitter, Hangouts, Android, iOS, and a number of other platforms.</p>
+
+      <h5>🐍 <a href="https://www.pythonmorsels.com/">Write better Python code</a> 🐍</h5>
+      <h6>💖 All code available on <a href="https://github.com/TruthfulTechnology/unicode.party">GitHub</a> 💖</h6>
+    </footer>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

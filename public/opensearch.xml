@@ -1,9 +1,9 @@
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
   <ShortName>Unicode Party</ShortName>
-  <Description>
-    Unicode emoji search engine
-  </Description>
+  <Description>Unicode emoji search engine</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">http://unicode.party/favicon.ico</Image>
-  <Url type="text/html" method="get" template="http://unicode.party/?query={searchTerms}"/>
+  <Url type="text/html" method="get" template="https://unicode.party/?query={searchTerms}"/>
+  <Image width="16" height="16">https://unicode.party/favicon.ico</Image>
+  <InputEncoding>UTF-8</InputEncoding>
+  <moz:SearchForm>https://twitter.com/search-home</moz:SearchForm>
 </OpenSearchDescription>
