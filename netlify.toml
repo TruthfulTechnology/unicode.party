@@ -1,7 +1,0 @@
-[[plugins]]
-  package = "netlify-plugin-opensearch"
-  [plugins.inputs]
-    searchUrl = "https://unicode.party/?query="
-    searchFile = "opensearch.xml"
-    siteShortName = "Unicode Party"
-    siteDescription = "Unicode emoji search engine"
