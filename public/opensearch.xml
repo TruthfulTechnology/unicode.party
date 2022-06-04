@@ -4,6 +4,7 @@
     Unicode emoji search engine
   </Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">http://unicode.party/favicon.ico</Image>
-  <Url type="text/html" method="get" template="http://unicode.party/?query={searchTerms}"/>
+  <Image width="16" height="16" type="image/x-icon">https://unicode.party/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://unicode.party/?query={searchTerms}"/>
+  <InputEncoding>UTF-8</InputEncoding>
 </OpenSearchDescription>
