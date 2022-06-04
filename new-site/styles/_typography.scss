@@ -1,9 +1,9 @@
 html {
   font-family: Arial;
-  font-size: 12px;
-//  @include susy-breakpoint($medium-screen, $susy) {
-//    font-size: 16px;
-//  }
+  font-size: 14px;
+  @media (min-width: $medium-screen) {
+    font-size: 16px;
+  }
 }
 
 @font-face {

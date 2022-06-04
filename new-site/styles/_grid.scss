@@ -1,28 +1,21 @@
-//@import "susy";
-
-$medium-screen: 40em;
+$medium-screen: 50em;
 $large-screen: 80em;
-
-$susy: (
-  columns: 4,
-  container: 80em,
-  gutters: calc(1 / 8),
-  output: isolate,
-  global-box-sizing: border-box,
-);
-
-// @include border-box-sizing;
 
 html {
   overflow-y: scroll;
+  box-sizing: border-box;
 }
 
 body {
-//  @include container;
+  width: 100vw;
 }
 
 header, main, footer {
   max-width: 90vw;
+  width: $medium-screen;
+  @media (min-width: $medium-screen) {
+    width: $large-screen;
+  }
   margin: auto;
 }
 

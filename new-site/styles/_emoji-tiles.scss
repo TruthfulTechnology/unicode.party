@@ -1,17 +1,22 @@
 $emoji-font-size: 6rem;
 
+.emoji-tiles {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 2.0em;
+  @media (min-width: $medium-screen) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: $large-screen) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2.3em;
+  }
+}
+
 .emoji-tile {
   @include card(2);
-//  @include span(4);
   padding: 1rem;
-  margin-bottom: 3rem;
   cursor: pointer;
- // @include susy-breakpoint($medium-screen, $susy) {
-//    @include gallery(2);
-//  }
-//  @include susy-breakpoint($large-screen, $susy) {
-//    @include gallery(1);
-//  }
   animation: showEmoji linear 0.1s;
   transition: all 0.1s ease-in-out;
   &:hover {
