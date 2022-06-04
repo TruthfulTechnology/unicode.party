@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "emojilib": "3.0.0",
+    "netlify-plugin-opensearch": "^1.0.4",
     "sass": "^1.52.2",
     "unicode-emoji-json": "0.2.1",
     "vite": "^2.9.9"
