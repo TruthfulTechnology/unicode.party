@@ -1,0 +1,31 @@
+//@import "susy";
+
+$medium-screen: 40em;
+$large-screen: 80em;
+
+$susy: (
+  columns: 4,
+  container: 80em,
+  gutters: calc(1 / 8),
+  output: isolate,
+  global-box-sizing: border-box,
+);
+
+// @include border-box-sizing;
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+//  @include container;
+}
+
+header, main, footer {
+  max-width: 90vw;
+  margin: auto;
+}
+
+footer {
+  text-align: center;
+}

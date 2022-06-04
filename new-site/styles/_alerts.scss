@@ -1,0 +1,31 @@
+.alerts {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.alert {
+  @include card(3);
+  font-size: 3rem;
+  padding: 1rem;
+  margin: 2rem;
+  animation: moveAlertUp ease-in-out 0.2s;
+}
+
+@keyframes moveAlertUp {
+  0% {
+    transform:  translate(0, 2em);
+  }
+  100% {
+    transform:  translate(0,0);
+  }
+}
+
+.alert-success {
+  background-color: lightgreen;
+}
+
+.alert-danger {
+  background-color: red;
+  color: snow;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Unicode Party: The Unicode Emoji Search Engine</title>
+    <link rel="icon" href="http://unicode.party/favicon.ico" sizes="16x16 32x32">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Unicode emoji search engine">
+    <meta name="author" content="Trey Hunner">
+    <meta name="creator" content="Truthful Technology, LLC">
+    <meta property="og:image" content="http://unicode.party/logo.png">
+    <meta property="og:title" content="Unicode Party 🎈">
+    <meta property="og:url" content="http://unicode.party">
+    <meta property="og:description" content="Unicode emoji search engine">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="search" type="application/opensearchdescription+xml" title="Unicode Party" href="http://unicode.party/opensearch.xml">
+  </head>
+  <body>
+    <header class="header">
+      <a href="/" class="active">
+        <h1 class="header-title">Unicode Party <span class="header-balloon">🎈</span></h1>
+        <h5 class="header-subtitle">The Unicode Emoji Search Engine</h5>
+      </a>
+    </header>
+    <main class="clearfix" x-data="results">
+      <label>
+        <input placeholder="Search" x-model="search">
+      </label>
+
+      <section class="emoji-tiles">
+        <template x-for="emoji in filteredItems.slice(0, 250)">
+          <div class="emoji-tile">
+            <div class="emoji-char" x-text="emoji.char">😀</div>
+            <div class="emoji-name" x-text="emoji.name">grinning face</div>
+            <div class="emoji-copy">Click to Copy</div>
+          </div>
+        </template>
+      </section>
+
+    </main>
+    <footer>
+      <p>Unicode Emoji characters work on Facebook, Twitter, Hangouts, Android, iOS, and a number of other platforms.</p>
+
+      <h5>Made by <a href="http://truthful.technology/">Truthful Technology, LLC</a></h5>
+      <h6>💖 All code available on <a href="https://github.com/TruthfulTechnology/unicode.party">GitHub</a> 💖</h6>
+    </footer>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

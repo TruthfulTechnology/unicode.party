@@ -1,0 +1,67 @@
+$emoji-font-size: 6rem;
+
+.emoji-tile {
+  @include card(2);
+//  @include span(4);
+  padding: 1rem;
+  margin-bottom: 3rem;
+  cursor: pointer;
+ // @include susy-breakpoint($medium-screen, $susy) {
+//    @include gallery(2);
+//  }
+//  @include susy-breakpoint($large-screen, $susy) {
+//    @include gallery(1);
+//  }
+  animation: showEmoji linear 0.1s;
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    @include card(3);
+    .emoji-name {
+      color: indigo;
+    }
+    .emoji-copy {
+      color: midnightblue;
+    }
+  }
+}
+
+.emoji-char {
+  @extend .emoji-text;
+  font-size: $emoji-font-size;
+  float: left;
+}
+
+.emoji-name {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+  text-transform: capitalize;
+  float: right;
+  text-align: right;
+  max-width: 50%;
+}
+
+.emoji-copy {
+  padding-top: $emoji-font-size - 1rem;
+  text-align: right;
+  color: gray;
+  .no-clipboard & {
+    display: none;
+  }
+}
+
+.emoji-tile {
+  &::selection, *:not(.emoji-char)::selection {
+    background: transparent;
+  }
+}
+
+@keyframes showEmoji {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}

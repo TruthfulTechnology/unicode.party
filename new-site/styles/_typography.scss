@@ -1,0 +1,68 @@
+html {
+  font-family: Arial;
+  font-size: 12px;
+//  @include susy-breakpoint($medium-screen, $susy) {
+//    font-size: 16px;
+//  }
+}
+
+@font-face {
+  font-family: "OpenSansEmoji";
+  src: url('/OpenSansEmoji.woff') format('woff');
+  text-decoration: none;
+  font-style: normal;
+}
+
+$h6-font-size: 1rem;
+$h5-font-size: calc($h6-font-size * 4/3);
+$h4-font-size: calc($h5-font-size * 4/3);
+$h3-font-size: calc($h4-font-size * 4/3);
+$h2-font-size: calc($h3-font-size * 4/3);
+$h1-font-size: calc($h2-font-size * 4/3);
+
+h1 { font-size: $h1-font-size; }
+h2 { font-size: $h2-font-size; }
+h3 { font-size: $h3-font-size; }
+h4 { font-size: $h4-font-size; }
+h5 { font-size: $h5-font-size; }
+h6 { font-size: $h6-font-size; }
+
+a {
+  &:link {
+    text-decoration: none;
+  }
+  &:link, &:visited {
+    color: blue;
+  }
+  &:hover {
+    color: red;
+  }
+}
+
+.header {
+  a {
+    color: initial;
+  }
+}
+
+.header-title {
+  margin-bottom: 0;
+}
+
+.header-balloon {
+  color: red;
+}
+
+.header-subtitle {
+  color: midnightblue;
+}
+
+footer {
+  p {
+    color: gray;
+  }
+}
+
+.no-emoji .emoji-text {
+  font-family: "Android Emoji", "Apple Color Emoji", "Segoe UI Emoji", "NotoColorEmoji", "Segoe UI Symbol", "DejaVu Sans", "OpenSansEmoji", "Arial Unicode MS", "EmojiSymbols", Symbola;
+}

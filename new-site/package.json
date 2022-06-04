@@ -1,0 +1,19 @@
+{
+  "name": "unicodeparty",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "emojilib": "^3.0.6",
+    "sass": "^1.52.2",
+    "unicode-emoji-json": "^0.3.1",
+    "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "alpinejs": "^3.10.2"
+  }
+}
