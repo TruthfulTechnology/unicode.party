@@ -41,7 +41,7 @@
           <div class="emoji-tile" x-on:click="copy(emoji.char)">
             <div class="emoji-char" x-text="emoji.char">😀</div>
             <div class="emoji-name" x-text="emoji.name">grinning face</div>
-            <div class="emoji-copy">Click to Copy</div>
+            <div class="emoji-copy" x-text="window.matchMedia('(pointer: coarse)').matches?'Tap to Copy':'Click to Copy'">Click to Copy</div>
           </div>
         </template>
       </section>
