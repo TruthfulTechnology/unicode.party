@@ -112,17 +112,4 @@ Alpine.data('main', () => ({
   },
 }));
 
-
-window.onkeypress = (event) => {
-  if (event.charCode === 13) {
-    const input = document.getElementById('query');
-    if (document.activeElement === input) {
-      input.blur();
-    } else {
-      input.focus();
-      input.select();
-    }
-  }
-};
-
 Alpine.start();

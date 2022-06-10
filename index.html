@@ -33,7 +33,9 @@
     </header>
     <main class="clearfix">
       <label>
-        <input type="text" id="query" placeholder="Search" autofocus required x-init="setQuery(); $nextTick(() => { $el.select(); });" x-model="search">
+        <input type="text" id="query" placeholder="Search" autofocus required x-model="search"
+               x-init="setQuery(); $nextTick(() => { $el.select(); });"
+               @keyup.enter.window="if (document.activeElement === $el) { $el.blur() } else { $el.select() }">
       </label>
 
       <section class="emoji-tiles">
