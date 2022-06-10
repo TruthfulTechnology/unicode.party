@@ -20,9 +20,12 @@ input {
     repeat: no-repeat;
   }
   transition: background 0.3s cubic-bezier(.64,.09,.08,1);
-  &:focus, &:valid, &:invalid {
+  &:valid, &:invalid {
     box-shadow: none;
     outline: none;
+  }
+  &:focus {
+    outline: 1px dotted teal;
   }
   &:focus, &:valid {
     background-size: 100% 100%;
