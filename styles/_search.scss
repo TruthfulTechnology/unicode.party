@@ -16,17 +16,16 @@ input {
   }
   background: {
     image: linear-gradient(to bottom, rgba(255,255,255,0) 96%, teal);
-    position: -20rem 0;
-    size: 20rem 100%;
+    size: 0 100%;
     repeat: no-repeat;
   }
-  transition: all 0.3s cubic-bezier(.64,.09,.08,1);
+  transition: background 0.3s cubic-bezier(.64,.09,.08,1);
   &:focus, &:valid, &:invalid {
     box-shadow: none;
     outline: none;
   }
   &:focus, &:valid {
-    background-position: 0 0;
+    background-size: 100% 100%;
     &::placeholder {
       color: teal;
       transform: translateY(-2rem);
