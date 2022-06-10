@@ -33,8 +33,9 @@
     </header>
     <main>
       <label>
-        <input type="text" id="query" placeholder="Search" autofocus required x-model="search"
+        <input type="text" id="query" placeholder="Search" autofocus x-model="search"
                x-init="setQuery(); $nextTick(() => { $el.select(); });"
+               :class="{ active: search.length > 0 }"
                @keyup.enter.window="if (document.activeElement === $el) { $el.blur() } else { $el.select() }">
       </label>
 
