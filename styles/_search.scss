@@ -6,10 +6,6 @@ label {
   margin-top: -3rem;
 }
 
-input::-webkit-input-placeholder {
-  transition: all 0.3s ease-in-out;
-}
-
 input {
   width: 20rem;
   color: darken(teal, 20%);
@@ -36,5 +32,8 @@ input {
       transform: translateY(-2rem);
       visibility: visible !important;
     }
+  }
+  &::placeholder {
+    transition: all 0.3s ease-in-out;
   }
 }
