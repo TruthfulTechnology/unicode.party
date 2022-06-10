@@ -13,19 +13,28 @@ form[role="search"] {
   height: 3rem;
   margin-bottom: 3rem;
 
-  #query {
-    // The complicated width/max-width makes the input the same width as:
-    // * 1 emoji tile on small screens
-    // * 1 emoji tile on medium screens
-    // * 2 emoji tiles on large screens
-    box-sizing: border-box;
-    max-width: 90vw;
-    width: $medium-screen;
+  // The gap matches the .emoji-tiles grid-gap
+  gap: 2rem;
+  @media (min-width: $large-screen) {
+    gap: 2.3rem;
+  }
+
+  :first-child {
+    // On small screens, the search input takes the whole remaining space
+    // On medium screens, the input spans 1 emoji tile (out of two per row)
+    // On large screens it spans 2 tiles (out of four per row)
+    flex: 1 1;
     @media (min-width: $medium-screen) {
-      max-width: calc(45vw - 1rem);
+      flex: 0;
+      flex-basis: calc(50% - 1rem);
     }
     @media (min-width: $large-screen) {
-      width: calc(math.div($large-screen, 2) - 1.15rem);
+      flex-basis: calc(50% - 1.15rem);
+    }
+
+    input {
+      box-sizing: border-box;
+      width: 100%;
     }
   }
 
@@ -44,9 +53,10 @@ form[role="search"] {
       cursor: text;
     }
 
-    input {
+    input, select {
       transition: background 0.3s cubic-bezier(.64,.09,.08,1);
       color: darken(teal, 20%);
+      background: unset;
       padding: 1rem;
       border: none {
         bottom: solid 1px teal;

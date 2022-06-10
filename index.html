@@ -40,12 +40,27 @@
                  @keyup.enter.window="if (document.activeElement === $el) { $el.blur() } else { $el.select() }">
           <label for="query">Search</label>
         </div>
+
+        <div class="form-element">
+          <select id="skintone"
+                  x-model="currentSkinToneChar"
+                  :class="{ active: currentSkinToneChar !== skinTones.none}"
+                  x-init="$nextTick(() => { loadSkinToneFromLocalStorage() })">
+            <template x-for="[name, modifier] in Object.entries(skinTones)">
+              <option :value="modifier"
+                      x-text="modifier + ' ' + toKebabCase(name)"></option>
+            </template>
+          </select>
+          <label for="skintone">Skin tone</label>
+        </div>
       </form>
 
       <section class="emoji-tiles">
         <template x-for="emoji in filteredItems.slice(0, 40)">
-          <div class="emoji-tile" x-on:click="copy(emoji.char)">
-            <div class="emoji-char" x-text="emoji.char">😀</div>
+          <div class="emoji-tile"
+               :class="{ 'skintone-enabled': emoji.skinTone }"
+               x-on:click="copy(withSkinTone(emoji))">
+            <div class="emoji-char" x-text="withSkinTone(emoji)">😀</div>
             <div class="emoji-name" x-text="emoji.name">grinning face</div>
             <div class="emoji-copy" x-text="window.matchMedia('(pointer: coarse)').matches?'Tap to Copy':'Click to Copy'">Click to Copy</div>
           </div>
