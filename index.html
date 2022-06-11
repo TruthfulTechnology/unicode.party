@@ -32,12 +32,15 @@
       </a>
     </header>
     <main>
-      <label>
-        <input type="text" id="query" placeholder="Search" autofocus x-model="search"
-               x-init="setQuery(); $nextTick(() => { $el.select(); });"
-               :class="{ active: search.length > 0 }"
-               @keyup.enter.window="if (document.activeElement === $el) { $el.blur() } else { $el.select() }">
-      </label>
+      <form role="search" @submit.prevent>
+        <div class="form-element">
+          <input type="text" id="query" autofocus x-model="search"
+                 x-init="setQuery(); $nextTick(() => { $el.select(); });"
+                 :class="{ active: search.length > 0 }"
+                 @keyup.enter.window="if (document.activeElement === $el) { $el.blur() } else { $el.select() }">
+          <label for="query">Search</label>
+        </div>
+      </form>
 
       <section class="emoji-tiles">
         <template x-for="emoji in filteredItems.slice(0, 40)">

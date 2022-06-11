@@ -1,37 +1,60 @@
-// Based on http://codepen.io/mildrenben/pen/gbddEj
+// The <label> + <input> group has two main effects:
 
-label {
-  display: block;
-  padding-top: 3rem;
-  margin-top: -3rem;
-}
+// 1) An animated bottom border (implemented with a gradient background image) that appears on focus.
+//    This effect was inspired by https://codepen.io/mildrenben/pen/gbddEj
+// 2) A "material" effect where the label is positioned visually inside its corresponding input
+//    but moves above it when the input is focused (and stays there as long as the input has a value).
+//    This effect is achieved using the `+` sibling selector which means that the <label> tag MUST
+//    be inserted right after its <input> in the HTML.
 
-input {
-  width: 20rem;
-  color: darken(teal, 20%);
+form[role="search"] {
+  display: flex;
+  height: 3rem;
   margin-bottom: 3rem;
-  padding: 1rem 0;
-  border: none {
-    bottom: solid 1px teal;
+
+  #query {
+    width: 20rem;
   }
-  background: {
-    image: linear-gradient(to bottom, rgba(255,255,255,0) 96%, teal);
-    size: 0 100%;
-    repeat: no-repeat;
-  }
-  transition: background 0.3s cubic-bezier(.64,.09,.08,1);
-  &:focus {
-    outline: 1px dotted teal;
-  }
-  &:focus, &.active {
-    background-size: 100% 100%;
-    &::placeholder {
-      color: teal;
-      transform: translateY(-2rem);
-      visibility: visible !important;
+
+  .form-element {
+    position: relative;
+
+    label {
+      transition: top .3s ease-in-out;
+      color: gray;
+      position: absolute;
+      top: 50%;
+      left: .5rem;
+      transform: translateY(-50%);
+      padding: 0 .5rem;
+      background-color: #fff;
+      cursor: text;
     }
-  }
-  &::placeholder {
-    transition: all 0.3s ease-in-out;
+
+    input {
+      transition: background 0.3s cubic-bezier(.64,.09,.08,1);
+      color: darken(teal, 20%);
+      padding: 1rem 0;
+      border: none {
+        bottom: solid 1px teal;
+      }
+      background: {
+        image: linear-gradient(to bottom, rgba(255,255,255,0) 96%, teal);
+        size: 0 100%;
+        repeat: no-repeat;
+      }
+
+      &:focus {
+        outline: 1px dotted teal;
+      }
+      &:focus, &.active {
+        background-size: 100% 100%;
+
+        & + label {
+          top: 0;
+          color: teal;
+        }
+      }
+    }
   }
 }
