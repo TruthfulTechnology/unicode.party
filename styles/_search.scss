@@ -1,3 +1,4 @@
+@use "sass:math";
 // The <label> + <input> group has two main effects:
 
 // 1) An animated bottom border (implemented with a gradient background image) that appears on focus.
@@ -13,7 +14,19 @@ form[role="search"] {
   margin-bottom: 3rem;
 
   #query {
-    width: 20rem;
+    // The complicated width/max-width makes the input the same width as:
+    // * 1 emoji tile on small screens
+    // * 1 emoji tile on medium screens
+    // * 2 emoji tiles on large screens
+    box-sizing: border-box;
+    max-width: 90vw;
+    width: $medium-screen;
+    @media (min-width: $medium-screen) {
+      max-width: calc(45vw - 1rem);
+    }
+    @media (min-width: $large-screen) {
+      width: calc(math.div($large-screen, 2) - 1.15rem);
+    }
   }
 
   .form-element {
