@@ -1,5 +1,5 @@
-$medium-screen: 50em;
-$large-screen: 80em;
+$medium-screen: 50rem;
+$large-screen: 80rem;
 
 html {
   overflow-y: scroll;
@@ -16,6 +16,6 @@ header, main, footer {
 }
 
 footer {
-  margin-top: 4em;
+  margin-top: 4rem;
   text-align: center;
 }
