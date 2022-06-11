@@ -3,13 +3,13 @@ $emoji-font-size: 6rem;
 .emoji-tiles {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-gap: 2.0em;
+  grid-gap: 2.0rem;
   @media (min-width: $medium-screen) {
     grid-template-columns: repeat(2, 1fr);
   }
   @media (min-width: $large-screen) {
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 2.3em;
+    grid-gap: 2.3rem;
   }
 }
 

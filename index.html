@@ -31,12 +31,16 @@
         <h5 class="header-subtitle">The Unicode Emoji Search Engine</h5>
       </a>
     </header>
-    <main class="clearfix">
-      <label>
-        <input type="text" id="query" placeholder="Search" autofocus required x-model="search"
-               x-init="setQuery(); $nextTick(() => { $el.select(); });"
-               @keyup.enter.window="if (document.activeElement === $el) { $el.blur() } else { $el.select() }">
-      </label>
+    <main>
+      <form role="search" @submit.prevent>
+        <div class="form-element">
+          <input type="search" id="query" autofocus x-model="search"
+                 x-init="setQuery(); $nextTick(() => { $el.select(); });"
+                 :class="{ active: search.length > 0 }"
+                 @keyup.enter.window="if (document.activeElement === $el) { $el.blur() } else { $el.select() }">
+          <label for="query">Search</label>
+        </div>
+      </form>
 
       <section class="emoji-tiles">
         <template x-for="emoji in filteredItems.slice(0, 40)">
