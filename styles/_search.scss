@@ -38,6 +38,13 @@ form[role="search"] {
     }
   }
 
+  label[for="skintone"] {
+    // workaround for the issue where you need to click twice to open the skintone dropdown
+    // (once to focus the <select> and let the label move up out of the way, once to actually
+    //  open the dropdown)
+    pointer-events: none;
+  }
+
   .form-element {
     position: relative;
 
