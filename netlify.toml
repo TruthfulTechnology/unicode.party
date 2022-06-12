@@ -5,3 +5,8 @@
       public,
       max-age=31556926,
       immutable'''
+
+[[headers]]
+  for = "/opensearch.xml"
+  [headers.values]
+    content-type = "application/opensearchdescription+xml"
