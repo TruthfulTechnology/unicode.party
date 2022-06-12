@@ -5,5 +5,5 @@
   <Url type="text/html" method="get" template="https://unicode.party/?query={searchTerms}"/>
   <Image width="16" height="16">https://unicode.party/favicon.ico</Image>
   <InputEncoding>UTF-8</InputEncoding>
-  <moz:SearchForm>https://twitter.com/search-home</moz:SearchForm>
+  <moz:SearchForm>https://unicode.party/</moz:SearchForm>
 </OpenSearchDescription>
