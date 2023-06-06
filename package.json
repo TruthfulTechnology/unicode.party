@@ -11,7 +11,7 @@
     "emojilib": "3.0.0",
     "sass": "^1.52.2",
     "unicode-emoji-json": "0.2.1",
-    "vite": "^2.9.9"
+    "vite": "^2.9.16"
   },
   "dependencies": {
     "alpinejs": "^3.10.2"
