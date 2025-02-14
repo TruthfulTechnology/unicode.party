@@ -28,12 +28,21 @@ $emoji-font-size: 6rem;
       color: midnightblue;
     }
   }
+  display: grid;
+  // That magic 1.2 multiplier seems to make the right max width
+  grid-template-columns: $emoji-font-size*1.2 auto;
+  grid-auto-columns: 1fr;
+  column-gap: 1em;
+  row-gap: 1em;
 }
 
 .emoji-char {
   @extend .emoji-text;
   font-size: $emoji-font-size;
-  float: left;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .emoji-name {
@@ -42,18 +51,20 @@ $emoji-font-size: 6rem;
   -ms-user-select: none;
   user-select: none;
   text-transform: capitalize;
-  float: right;
   text-align: right;
-  max-width: 50%;
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .emoji-copy {
-  padding-top: $emoji-font-size - 1rem;
   text-align: right;
   color: gray;
-  .no-clipboard & {
-    display: none;
-  }
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-bottom: 1rem;
 }
 
 .emoji-tile {
